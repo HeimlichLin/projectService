@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taurus-xdao>
+	<data-source id="dsPFOSP" class="com.tradevan.taurus.xdao.ds.JdbcDataSource" type="oracle" loadOnStart="true">		
+		<property name="jdbc-driver" value="oracle.jdbc.driver.OracleDriver" />
+        <!-- 測試 -->
+        <property name="jdbc-url" value="jdbc:oracle:thin:@172.31.70.50:1524:T04A"/>
+        <property name="user" value="pfospmgr"/>
+        <property name="password" value="cDlRNDKRJm"/>
+        
+        <!-- 測試 
+        <property name="jdbc-url" value="jdbc:oracle:thin:@172.31.70.50:1524:T04A"/>
+        <property name="user" value="pfospsrv"/>
+        <property name="password" value="TVPFOSPSRV"/>
+        -->
+        <!-- 
+        <property name="jdbc-url" value="jdbc:oracle:thin:@172.31.70.50:1524:T04A"/>
+        <property name="user" value="pfospmgr"/>
+        <property name="password" value="cDlRNDKRJm"/>
+        -->
+		<!-- 驗證環境   
+        <property name="jdbc-url" value="jdbc:oracle:thin:@10.89.1.11:1524:V04A"/>
+        <property name="user" value="pfospsrv"/>
+        <property name="password" value="ufCgBqApPU"/>  
+        -->
+        <!-- 營運   
+        <property name="jdbc-url" value="jdbc:oracle:thin:@10.88.8.2:1524:P04A"/>
+        <property name="user" value="pfospcli"/>
+        <property name="password" value="zRDhTgLt"/>
+        -->
+        
+	</data-source>
+	
+		
+	<!-- <data-source id="dsPDCCU" class="com.tradevan.taurus.xdao.ds.JdbcDataSource" type="oracle" loadOnStart="true">		
+		<property name="jdbc-driver" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbc-url" value="jdbc:oracle:thin:@10.88.8.4:1533:P13A"/>
+        <property name="user" value="pdccu4pfospsrv"/>
+        <property name="password" value="S4gy0Sft4G"/>				
+	</data-source> -->
+	<data-source id="dsPDCCU" class="com.tradevan.taurus.xdao.ds.JdbcDataSource" type="oracle" loadOnStart="true">		
+		<property name="jdbc-driver" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbc-url" value="jdbc:oracle:thin:@10.88.8.4:1533:P13A"/>
+        <property name="user" value="pdccucli"/>
+        <property name="password" value="tvpdccucli"/>				
+	</data-source>
+	<!-- <data-source id="dsPFTZB" class="com.tradevan.taurus.xdao.ds.JdbcDataSource" type="oracle" loadOnStart="true">		
+		<property name="jdbc-driver" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbc-url" value="jdbc:oracle:thin:@172.31.70.50:1524:T04A"/>
+        <property name="user" value="pftzb4pfospsrv"/>
+        <property name="password" value="bJeGZPUQrE"/>
+	</data-source> -->
+	<data-source id="dsPFTZB" class="com.tradevan.taurus.xdao.ds.JdbcDataSource" type="oracle" loadOnStart="true">		
+		<property name="jdbc-driver" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbc-url" value="jdbc:oracle:thin:@10.88.8.2:1524:P04A"/>
+        <property name="user" value="PFTZBCLIQRY"/>
+        <property name="password" value="KLALBE3r"/>
+	</data-source>
+	<data-source id="dsPFTZC" class="com.tradevan.taurus.xdao.ds.JdbcDataSource" type="oracle" loadOnStart="true">		
+		<property name="jdbc-driver" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbc-url" value="jdbc:oracle:thin:@10.88.8.2:1524:P04A"/>
+        <property name="user" value="PFTZCCLIQRY"/>
+        <property name="password" value="V61LaKGg"/>
+	</data-source>
+	<data-source id="dsPMOTC" class="com.tradevan.taurus.xdao.ds.JdbcDataSource" type="oracle" loadOnStart="true">		
+		<property name="jdbc-driver" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbc-url" value="jdbc:oracle:thin:@172.31.70.50:1524:T04A"/>
+        <property name="user" value="pmotc4pfospsrv"/>
+        <property name="password" value="yeJlJrRKgn"/>
+	</data-source>
+	
+	<connections defaultMaxRow="5000" defaultPageSize="20" defaultSqlTimeout="36000" logger="XdaoLogger" logConfig="conf/logging.xml">
+		<connection id="fospConn" dataSource="dsPFOSP" logger="XdaoLogger">					
+			<property name="page-size" value="10" />
+			<property name="sql-timeout" value="36000" />
+			<property name="show-sql" value="true" />
+			<property name="db-encoding" value="UTF-8" />
+			<property name="jvm-encoding" value="UTF-8"/>
+			<property name="field-case-sensitive" value="false" />
+			<property name="data-class" value="com.tradevan.commons.collection.DataObject" />
+			<property name="keep-data-type" value="false" />
+			<property name="skip-null-value" value="false" />
+			<property name="null-to-string" value="true" />
+		</connection>
+		<connection id="dccuConn" dataSource="dsPDCCU" logger="XdaoLogger">					
+			<property name="page-size" value="10" />
+			<property name="sql-timeout" value="36000" />
+			<property name="show-sql" value="true" />
+			<property name="db-encoding" value="UTF-8" />
+			<property name="jvm-encoding" value="UTF-8"/>
+			<property name="field-case-sensitive" value="false" />
+			<property name="data-class" value="com.tradevan.commons.collection.DataObject" />
+			<property name="keep-data-type" value="false" />
+			<property name="skip-null-value" value="false" />
+			<property name="null-to-string" value="true" />
+		</connection>
+		<connection id="ftzbConn" dataSource="dsPFTZB" logger="XdaoLogger">					
+			<property name="page-size" value="10" />
+			<property name="sql-timeout" value="36000" />
+			<property name="show-sql" value="true" />
+			<property name="db-encoding" value="UTF-8" />
+			<property name="jvm-encoding" value="UTF-8"/>
+			<property name="field-case-sensitive" value="false" />
+			<property name="data-class" value="com.tradevan.commons.collection.DataObject" />
+			<property name="keep-data-type" value="false" />
+			<property name="skip-null-value" value="false" />
+			<property name="null-to-string" value="true" />
+		</connection>
+		<connection id="ftzcConn" dataSource="dsPFTZC" logger="XdaoLogger">					
+			<property name="page-size" value="10" />
+			<property name="sql-timeout" value="36000" />
+			<property name="show-sql" value="true" />
+			<property name="db-encoding" value="UTF-8" />
+			<property name="jvm-encoding" value="UTF-8"/>
+			<property name="field-case-sensitive" value="false" />
+			<property name="data-class" value="com.tradevan.commons.collection.DataObject" />
+			<property name="keep-data-type" value="false" />
+			<property name="skip-null-value" value="false" />
+			<property name="null-to-string" value="true" />
+		</connection>
+		<connection id="motcConn" dataSource="dsPMOTC" logger="XdaoLogger">					
+			<property name="page-size" value="10" />
+			<property name="sql-timeout" value="36000" />
+			<property name="show-sql" value="true" />
+			<property name="db-encoding" value="UTF-8" />
+			<property name="jvm-encoding" value="UTF-8"/>
+			<property name="field-case-sensitive" value="false" />
+			<property name="data-class" value="com.tradevan.commons.collection.DataObject" />
+			<property name="keep-data-type" value="false" />
+			<property name="skip-null-value" value="false" />
+			<property name="null-to-string" value="true" />
+		</connection>
+	</connections>
+		
+
+	<template-config>
+		<!--<template file="conf/saab/saab_api_sql.xml" />
+		<template file="conf/saab/saab_system_sql.xml" />-->
+	</template-config>
+
+</taurus-xdao>
